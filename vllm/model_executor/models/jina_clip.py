@@ -55,7 +55,7 @@ logger = logging.get_logger(__name__)
 
 # CONFIGURATION_CLIP --------------------------------------------------
 
-class JinaCLIPTextConfig(PretrainedConfig):  # ME: something to review
+class JinaCLIPTextConfig(PretrainedConfig):  # MEX: something to review
     model_type = 'jina_clip_text'
 
     def __init__(
@@ -106,7 +106,7 @@ class JinaCLIPTextConfig(PretrainedConfig):  # ME: something to review
         return cls.from_dict(configdict, **kwargs)
 
 
-class JinaCLIPVisionConfig(PretrainedConfig):  # ME: something to review
+class JinaCLIPVisionConfig(PretrainedConfig):  # MEX: something to review
     model_type = 'jina_clip_vision'
 
     def __init__(
@@ -181,7 +181,7 @@ class JinaCLIPVisionConfig(PretrainedConfig):  # ME: something to review
         return cls.from_dict(configdict, **kwargs)
 
 
-class JinaCLIPConfig(PretrainedConfig):  # ME: something to review
+class JinaCLIPConfig(PretrainedConfig):  # MEX: something to review
     model_type = 'jina_clip'
     is_composition = True
 

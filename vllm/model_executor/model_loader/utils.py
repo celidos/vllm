@@ -230,7 +230,11 @@ def get_model_architecture(
         "fp8", "compressed-tensors", "gptq_marlin", "awq_marlin", "quark"
     ]
 
+    logger.warning("we are trying to look our model's arch there")  # MEX: remove
+
     vllm_supported_archs = ModelRegistry.get_supported_archs()
+    logger.warning(f"supp archs: {vllm_supported_archs}")  # MEX: remove
+
     vllm_not_supported = not any(arch in vllm_supported_archs
                                  for arch in architectures)
     if (model_config.model_impl == ModelImpl.TRANSFORMERS or
