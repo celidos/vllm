@@ -2337,7 +2337,7 @@ class JinaCLIPModel(JinaCLIPPreTrainedModel):
             prefix: str = "",
             **kwargs
         ):
-        config = JinaCLIPConfig.from_pretrained(vllm_config.model, trust_remote_code=vllm_config.trust_remote_code)
+        config = JinaCLIPConfig.from_pretrained(vllm_config.model_config.model)
 
         super().__init__(config)
 
