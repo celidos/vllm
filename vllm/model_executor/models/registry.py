@@ -164,7 +164,7 @@ _EMBEDDING_MODELS = {
     # input and output. I am adding it here because it piggy-backs on embedding
     # models for the time being.
     "PrithviGeoSpatialMAE": ("prithvi_geospatial_mae", "PrithviGeoSpatialMAE"),
-    # "JinaCLIPModel": ("jina_clip", "JinaCLIPModel")
+    "JinaCLIPModel": ("jina_clip", "JinaCLIPModel")
 }
 
 _CROSS_ENCODER_MODELS = {
