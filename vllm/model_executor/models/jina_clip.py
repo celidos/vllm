@@ -2333,7 +2333,9 @@ class JinaCLIPModel(JinaCLIPPreTrainedModel):
             self, 
             # vllm_config: VllmConfig,
             config: JinaCLIPConfig,
-            prefix: str = ""
+            vllm_config=None,
+            prefix: str = "",
+            **kwargs
         ):
         # config = AutoConfig.from_pretrained(vllm_config.model, trust_remote_code=vllm_config.trust_remote_code)
 
