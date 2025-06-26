@@ -2330,9 +2330,12 @@ class JinaCLIPModel(JinaCLIPPreTrainedModel):
 
     def __init__(
             self, 
-            config: JinaCLIPConfig,
+            vllm_config: VllmConfig,
+            # config: JinaCLIPConfig,
             prefix: str = ""
         ):
+        config = AutoConfig.from_pretrained(vllm_config.model, trust_remote_code=vllm_config.trust_remote_code)
+
         super().__init__(config)
 
         if not isinstance(config.text_config, JinaCLIPTextConfig):
