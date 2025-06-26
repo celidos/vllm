@@ -1286,7 +1286,7 @@ def timm_drop_path(x, drop_prob: float = 0., training: bool = False, scale_by_ke
 def to_2tuple(x):
     if isinstance(x, collections.abc.Iterable) and not isinstance(x, str):
         return tuple(x)
-    return tuple(x, x)
+    return (x, x)
 
 
 def _trunc_normal_(tensor, mean, std, a, b):
@@ -2021,6 +2021,10 @@ class EVAVisionTransformer(nn.Module):
         elif isinstance(m, nn.LayerNorm):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
+
+    @staticmethod
+    def _initialize_weights(m):  # MEX! dummy init
+        pass
 
     def get_num_layers(self):
         return len(self.blocks)
