@@ -42,7 +42,9 @@ from vllm.transformers_utils.configs import (ChatGLMConfig, Cohere2Config,
                                              NemotronConfig, NVLM_D_Config,
                                              OvisConfig, RWConfig,
                                              SkyworkR1VChatConfig, SolarConfig,
-                                             Telechat2Config, UltravoxConfig)
+                                             Telechat2Config, UltravoxConfig,
+                                             JinaCLIPTextConfig, JinaCLIPVisionConfig,
+                                             JinaCLIPConfig)
 # yapf: enable
 from vllm.transformers_utils.utils import check_gguf_file
 from vllm.utils import resolve_obj_by_qualname
@@ -85,6 +87,9 @@ _CONFIG_REGISTRY: dict[str, type[PretrainedConfig]] = {
     "skywork_chat": SkyworkR1VChatConfig,
     "telechat": Telechat2Config,
     "ultravox": UltravoxConfig,
+    "jina_clip_text": JinaCLIPTextConfig,
+    "jina_clip_vision": JinaCLIPVisionConfig,
+    "jina_clip": JinaCLIPConfig,
     **_CONFIG_REGISTRY_OVERRIDE_HF
 }
 

@@ -462,6 +462,9 @@ class ModelConfig:
         return hashlib.sha256(str(factors).encode()).hexdigest()
 
     def __post_init__(self) -> None:
+        logger.info("CONF CONF \n__ENTER POST INIT__")
+        
+        
         # Set the default seed to 0 in V1.
         # NOTE(woosuk): In V0, we set the default seed to None because the
         # driver worker shares the same process as the user process, and thus
@@ -527,6 +530,9 @@ class ModelConfig:
 
         from vllm.platforms import current_platform
 
+        logger.info("CONF CONF \n__PLATFORMS OK__")
+        
+        
         if (self.override_attention_dtype is not None
                 and not current_platform.is_rocm()):
             warnings.warn(
@@ -541,9 +547,16 @@ class ModelConfig:
         if isinstance(self.config_format, str):
             self.config_format = ConfigFormat(self.config_format)
 
+        logger.info("CONF CONF \n__BEFORE HF CONFIG__")
+        logger.info("CONF CONF \n__BEFORE HF CONFIG22__")
+        
+        
+        
         hf_config = get_config(self.hf_config_path or self.model,
                                self.trust_remote_code, self.revision,
                                self.code_revision, self.config_format)
+        logger.info("CONF CONF \n__RIGHT AFTER HF CONFIG__")
+        
 
         if hf_overrides_kw:
             logger.debug("Overriding HF config with %s", hf_overrides_kw)
@@ -554,7 +567,14 @@ class ModelConfig:
 
         self.hf_config = hf_config
 
+        logger.info("CONF CONF \n__BEFORE HF TEXT CONFIG__")
+        logger.info("CONF CONF \n__BEFORE HF TEXT CONFIG__ jwdnfjwkefnwjefknn")
+        
+        
+        
         self.hf_text_config = get_hf_text_config(self.hf_config)
+        logger.info("CONF CONF \n__RIGHT AFTER HF TEXT CONFIG__")
+        
         self.attention_chunk_size = getattr(self.hf_text_config,
                                             "attention_chunk_size", None)
         self.encoder_config = self._get_encoder_config()
@@ -571,6 +591,8 @@ class ModelConfig:
 
         self.pooler_config = self._init_pooler_config()
 
+        logger.info("CONF CONF()()()()\nwe managed to get there!")
+        
         self.dtype = _get_and_verify_dtype(
             self.model,
             self.hf_config,

@@ -30,6 +30,7 @@ from vllm.transformers_utils.configs.skyworkr1v import SkyworkR1VChatConfig
 from vllm.transformers_utils.configs.solar import SolarConfig
 from vllm.transformers_utils.configs.telechat2 import Telechat2Config
 from vllm.transformers_utils.configs.ultravox import UltravoxConfig
+from vllm.transformers_utils.configs.jina_clip import JinaCLIPTextConfig, JinaCLIPVisionConfig, JinaCLIPConfig
 
 __all__ = [
     "ChatGLMConfig",
@@ -58,4 +59,7 @@ __all__ = [
     "SolarConfig",
     "Telechat2Config",
     "UltravoxConfig",
+    "JinaCLIPTextConfig",
+    "JinaCLIPVisionConfig",
+    "JinaCLIPConfig"
 ]
