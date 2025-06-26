@@ -2331,7 +2331,6 @@ class JinaCLIPModel(JinaCLIPPreTrainedModel):
     def __init__(
             self, 
             config: JinaCLIPConfig,
-            vllm_config: VllmConfig,
             prefix: str = ""
         ):
         super().__init__(config)
