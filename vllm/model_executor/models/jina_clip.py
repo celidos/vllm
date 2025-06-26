@@ -2332,12 +2332,12 @@ class JinaCLIPModel(JinaCLIPPreTrainedModel):
     def __init__(
             self, 
             # vllm_config: VllmConfig,
-            config: JinaCLIPConfig,
-            vllm_config=None,
+            # config: JinaCLIPConfig,
+            vllm_config: VllmConfig=None,
             prefix: str = "",
             **kwargs
         ):
-        # config = AutoConfig.from_pretrained(vllm_config.model, trust_remote_code=vllm_config.trust_remote_code)
+        config = JinaCLIPConfig.from_pretrained(vllm_config.model, trust_remote_code=vllm_config.trust_remote_code)
 
         super().__init__(config)
 
