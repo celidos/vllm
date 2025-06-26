@@ -29,6 +29,7 @@ from PIL import Image
 from torch import nn
 from transformers import (
     AutoConfig,
+    AutoModel,
     AutoImageProcessor,
     AutoTokenizer,
     BatchEncoding,
