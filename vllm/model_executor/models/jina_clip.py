@@ -28,6 +28,7 @@ import torch.utils.checkpoint
 from PIL import Image
 from torch import nn
 from transformers import (
+    AutoConfig,
     AutoImageProcessor,
     AutoTokenizer,
     BatchEncoding,
@@ -2236,7 +2237,7 @@ def _resolve_attention_libs(config: JinaCLIPConfig):
     return config
 
 
-class JinaCLIPPreTrainedModel(nn.Module):
+class JinaCLIPPreTrainedModel(PreTrainedModel):
     """
     An abstract class to handle weights initialization and a simple interface for
     downloading and loading pretrained models.
@@ -2330,11 +2331,11 @@ class JinaCLIPModel(JinaCLIPPreTrainedModel):
 
     def __init__(
             self, 
-            vllm_config: VllmConfig,
-            # config: JinaCLIPConfig,
+            # vllm_config: VllmConfig,
+            config: JinaCLIPConfig,
             prefix: str = ""
         ):
-        config = AutoConfig.from_pretrained(vllm_config.model, trust_remote_code=vllm_config.trust_remote_code)
+        # config = AutoConfig.from_pretrained(vllm_config.model, trust_remote_code=vllm_config.trust_remote_code)
 
         super().__init__(config)
 
@@ -2779,3 +2780,4 @@ class JinaCLIPModel(JinaCLIPPreTrainedModel):
             vision_model_output=None,
         )
     """
+
